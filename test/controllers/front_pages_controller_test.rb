@@ -11,4 +11,9 @@ class FrontPagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get vote" do
+    get front_pages_vote_url
+    assert_response :success
+  end
+
 end
