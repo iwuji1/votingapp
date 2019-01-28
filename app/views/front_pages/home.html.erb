@@ -1,8 +1,11 @@
 <% provide(:title, "Home") %>
-<h1>Home Page</h1>
-<p>Welcome to the home page for the voting app</p>
 
-<p>Here are the rules for voting....</p>
+<div class="center jumbotron">
+  <h1>Welcome to voting app</h1>
+  <h2>Thi is the home page</h2>
 
-<p>Ready to vote please login pressing the button below</p>
-<button type="button" name="button">Click Here!</button>
+  <p>Here are the rules for voting....</p>
+
+  <%= link_to "login!", '#', class: "btn btn-lg btn-primary" %>
+  <button type="button" name="button">Click Here!</button>
+</div>

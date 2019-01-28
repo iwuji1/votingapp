@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
-  get 'front_pages/home'
+  root 'front_pages#home'
 
-  get 'front_pages/help'
+  get '/help', to: 'front_pages#help'
 
-  get 'front_pages/vote'
+  get '/vote', to: 'front_pages#vote'
+
+  get  '/login',  to: 'users#new'
+  #get 'front_pages/home'
+
+  #get 'front_pages/help'
+
+  #get 'front_pages/vote'
 
   resources :options
   resources :candidates
