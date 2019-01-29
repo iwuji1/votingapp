@@ -19,7 +19,7 @@ class VotesController < ApplicationController
     saved = u.votes
     if params[:vote]
       params[:vote].each do |selection|
-        cand_name = eval(selection)[:cand_name]
+        cand_name = eval(selection)[:candidate_name]
         rank = eval(selection)[:rank]
         u.votes << Vote.new(candidate_name: cand_name, rank: rank)
       end
@@ -30,6 +30,6 @@ class VotesController < ApplicationController
 
   private
     def vote_params
-      params.require(:vote).permit(:candidate_name, :rank, :user_id)
+      params.require(:vote).permit(:candidate_name[], :rank[], :user_id)
     end
 end

@@ -9,15 +9,13 @@
             <th><%= r %></th>
             <% end %>
             <tr>
-              <% @candidates.each_with_index do |p, p_index| %>
+              <% @candidates.each do |p| %>
               <th><%= p %></th>
-                <% @rank.each_with_index do |r, r_index|%>
+                <% @rank.each do |r|%>
                 <td>
-                    <%selected_vote = @user.votes.any? do |vot| %>
-                      <% vot.p == p_index && vot.r == r_index %>
-                    <% end %>
+                    <%selected_vote = @user.votes.any? %>
                     <% selected_vote == true ? {checked: true} : nil %>
-                    <%= check_box_tag 'vote[]', {p: p_index,r: r_index}, selected_vote %>
+                    <%= check_box_tag 'vote[]', {candidate_name: p, rank: r}, selected_vote %>
                 </td>
                 <% end %>
             </tr>
