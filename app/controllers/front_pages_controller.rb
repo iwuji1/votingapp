@@ -5,8 +5,4 @@ class FrontPagesController < ApplicationController
   def help
   end
 
-  def vote
-    @candidate = Candidate.all
-    @options = Option.all
-  end
 end

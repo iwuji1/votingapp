@@ -2,6 +2,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @candidates = ["bob box", "susan small", "merry christmas", "why me"]
+    @rank = ["1st", "2nd", "3rd", "4th"]
   end
 
   def new

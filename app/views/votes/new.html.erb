@@ -1,0 +1,32 @@
+<h1>Votes#new</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for [@user, @vot] do |f| %>
+      <%= fields_for :votes do |ff| %>
+        <table width=80% id="voting_table">
+          <td scope="col">Rank</td>
+            <% @rank.each do |r| %>
+            <th><%= r %></th>
+            <% end %>
+            <tr>
+              <% @candidates.each_with_index do |p, p_index| %>
+              <th><%= p %></th>
+                <% @rank.each_with_index do |r, r_index|%>
+                <td>
+                    <%selected_vote = @user.votes.any? do |vot| %>
+                      <% vot.p == p_index && vot.r == r_index %>
+                    <% end %>
+                    <% selected_vote == true ? {checked: true} : nil %>
+                    <%= check_box_tag 'vote[]', {p: p_index,r: r_index}, selected_vote %>
+                </td>
+                <% end %>
+            </tr>
+              <% end %>
+        </table>
+        <div>
+          <%= ff.submit "vote !", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
