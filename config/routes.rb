@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   get '/help', to: 'front_pages#help'
   get '/vote', to: 'front_pages#vote'
-  get  '/login',  to: 'users#new'
+  get '/login', to:'users#new'
+  post '/login', to:'users#create'
 
-  get 'users/new'
   resources :users
 
   #get 'front_pages/home'
