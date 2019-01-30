@@ -24,8 +24,8 @@ class VotesController < ApplicationController
         u.votes << Vote.new(candidate_name: cand_name, rank: rank)
       end
     end
-    flash[:success] = "Welcome to voting app,get ready to vote!"
-    redirect_to(login_path)
+    flash[:success] = "Thank you for voting, stay tuned for results"
+    redirect_to(thanks_path)
   end
 
   private
