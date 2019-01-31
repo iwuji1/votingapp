@@ -5,4 +5,6 @@ class FrontPagesController < ApplicationController
   def help
   end
 
+  def thankyou
+  end
 end
