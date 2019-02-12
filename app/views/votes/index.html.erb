@@ -6,7 +6,7 @@
       <td>Number of votes</td>
       <td><%= Vote.count %></td>
     </tr>
-    <tr>
+    <!-- <tr>
       <td>Candidates</td>
       <td>Rankings</td>
     </tr>
@@ -15,8 +15,84 @@
       <td><%= us.candidate_name %></td>
       <td class="rank"><%= us.rank %></td>
     </tr>
-    <% end %>
+    <% end %> -->
+  </table>
+</div>
+<div class="">
+  <table>
+    <tr>
+      <td>Candidates</td>
+      <td>Total Votes</td>
+      <td>1st Votes</td>
+      <td>2nd Votes</td>
+      <td>3rd Votes</td>
+      <td>4th Votes</td>
+      <td>nil Votes</td>
+    </tr>
+    <tr>
+      <td>Bob Box</td>
+      <td><%= Vote.where(:candidate_name => "bob box").count %></td>
+      <td><%= Vote.where(:candidate_name => "bob box", :rank => 1).count %></td>
+      <td><%= Vote.where(:candidate_name => "bob box", :rank => 2).count %></td>
+      <td><%= Vote.where(:candidate_name => "bob box", :rank => 3).count %></td>
+      <td><%= Vote.where(:candidate_name => "bob box", :rank => 4).count %></td>
+      <td><%= Vote.where(:candidate_name => "bob box", :rank => nil).count %></td>
+    </tr>
+    <tr>
+      <td>Susan Small</td>
+      <td><%= Vote.where(:candidate_name => "susan small").count %></td>
+      <td><%= Vote.where(:candidate_name => "susan small", :rank => 1).count %></td>
+      <td><%= Vote.where(:candidate_name => "susan small", :rank => 2).count %></td>
+      <td><%= Vote.where(:candidate_name => "susan small", :rank => 3).count %></td>
+      <td><%= Vote.where(:candidate_name => "susan small", :rank => 4).count %></td>
+      <td><%= Vote.where(:candidate_name => "susan small", :rank => nil).count %></td>
+    </tr>
+    <tr>
+      <td>Merry christmas</td>
+      <td><%= Vote.where(:candidate_name => "merry christmas").count %></td>
+      <td><%= Vote.where(:candidate_name => "merry christmas", :rank => 1).count %></td>
+      <td><%= Vote.where(:candidate_name => "merry christmas", :rank => 2).count %></td>
+      <td><%= Vote.where(:candidate_name => "merry christmas", :rank => 3).count %></td>
+      <td><%= Vote.where(:candidate_name => "merry christmas", :rank => 4).count %></td>
+      <td><%= Vote.where(:candidate_name => "merry christmas", :rank => nil).count %></td>
+    </tr>
+    <tr>
+      <td>Why Me</td>
+      <td><%= Vote.where(:candidate_name => "why me").count %></td>
+      <td><%= Vote.where(:candidate_name => "why me", :rank => 1).count %></td>
+      <td><%= Vote.where(:candidate_name => "why me", :rank => 2).count %></td>
+      <td><%= Vote.where(:candidate_name => "why me", :rank => 3).count %></td>
+      <td><%= Vote.where(:candidate_name => "why me", :rank => 4).count %></td>
+      <td><%= Vote.where(:candidate_name => "why me", :rank => nil).count %></td>
+    </tr>
+    <tr>
+      <td>Nil</td>
+      <td><%= Vote.where(:candidate_name => nil).count %></td>
+      <td><%= Vote.where(:candidate_name => nil, :rank => 1).count %></td>
+      <td><%= Vote.where(:candidate_name => nil, :rank => 2).count %></td>
+      <td><%= Vote.where(:candidate_name => nil, :rank => 3).count %></td>
+      <td><%= Vote.where(:candidate_name => nil, :rank => 4).count %></td>
+      <td><%= Vote.where(:candidate_name => nil, :rank => nil).count %></td>
+    </tr>
+    <tr>
+      <td>Totals</td>
+      <td><% Vote.count %></td>
+      <td><%= Vote.where(:rank => 1).count %></td>
+      <td><%= Vote.where(:rank => 2).count %></td>
+      <td><%= Vote.where(:rank => 3).count %></td>
+      <td><%= Vote.where(:rank => 4).count %></td>
+      <td><%= Vote.where(:rank => nil).count %></td>
+    </tr>
   </table>
 </div>
 
-<!-- #how summation for votes will work: Vote.where(:rank => nil).sum(:user_id) -->
+<div class="">
+  <table>
+    <% ct = 0 %>
+    <% @vot.each do |v| %>
+      <% if v.rank == 1 %>
+        <%=ct = ct+1%>
+        <% end %>
+        <% end %>
+  </table>
+</div>
