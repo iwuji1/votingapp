@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   root 'front_pages#home'
 
   get '/help', to: 'front_pages#help'
+  get '/vot', to: 'votes#new'
   get '/vote', to: 'front_pages#vote'
   get '/thanks', to: 'front_pages#thankyou'
   get '/signup', to:'users#new'

@@ -5,8 +5,28 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create(name:  "Example User",
-             email: "example@railstutorial.org",
+User.create(name:  "admin",
+             email: "admin@gmail.com",
              password:              "foobar",
              password_confirmation: "foobar",
              admin: true)
+
+20.times do |time|
+  User.create(
+    name: "person#{time}",
+    email: "person#{time}@gmail.com",
+    password: "changeme!",
+    password_confirmation: "changeme!",
+    admin: false
+  )
+end
+
+for use in User.all
+  6.times do |time|
+    Vote.create(
+      user_id: use.id,
+      candidate_name: [0,1,2,3].sample,
+      rank: [0,1,2,3].sample,
+    )
+  end
+end
