@@ -1,5 +1,5 @@
 module VotesHelper
-  def ranked_voting(users,votes, candidates, ranks)
+  def ranked_voting(users, votes, candidates, ranks)
     v5 = []
     sup = []
     count = 0
@@ -15,12 +15,21 @@ module VotesHelper
       v5 << sup.sum
       sup = []
     end
+
+    puts "candidates completed"
+
+    i = 0
+    binding.pry
     while v5.sum != 0
-      if v5.map{|s| s.to_f/v5.sum}.map{|s| s> 0.51}.index(true) != nil
-        @winner = candidates[v5.map{|s| s.to_f/v5.sum}.map{|s| s> 0.51}.index(true)]
+      divided = v5.map{|s| s.to_f/v5.sum}
+      over_fifty = divided.map{|s| s > 0.51}
+      if over_fifty.include?(true)
+        @winner = candidates[over_fifty.index(true)]
         break
       else
-        @loser = v5.map{|s| s.to_f/v5.sum}.index(v5.map{|s| s.to_f/v5.sum}.min)
+        rem_z = divided
+        rem_z.delete(0)
+        @loser = divided.index(rem_z.min)
         count = count + 1
         v5[@loser] = 0
         (count..(ranks.length - 1)).each do |r|
@@ -29,7 +38,9 @@ module VotesHelper
           end
         end
       end
+
       candidates.each_with_index do |cand, cand_index|
+        sup = []
         users.each_with_index do |us, us_index|
           if @group.key?([us_index,@loser.to_s,count - 1]) == true
             if @group.key?([us_index,cand_index.to_s,count]) == true
@@ -38,8 +49,12 @@ module VotesHelper
           end
         end
         v5[cand_index] = v5[cand_index] + sup.sum
-        sup = []
+        # sup = []
       end
+
+      puts "iteration #{i}, #{v5.sum}, #{v5}"
+
+      i += 1
     end
   end
 end
