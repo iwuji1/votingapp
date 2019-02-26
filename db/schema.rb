@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190220071731) do
+ActiveRecord::Schema.define(version: 20190225152721) do
 
   create_table "ballots", force: :cascade do |t|
     t.string "ballot_name"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20190220071731) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "trial"
+    t.integer "ballot_id"
   end
 
 end

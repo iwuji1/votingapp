@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   get 'sessions/new'
 
+  get 'ballots/new'
+
+  resources :votes
   # get 'votes/index'
   #
   # get 'votes/new'
@@ -12,7 +15,7 @@ Rails.application.routes.draw do
 
   get '/help', to: 'front_pages#help'
   get '/vot', to: 'votes#new'
-  get '/vote', to: 'front_pages#vote'
+  get '/vote', to: 'vote#index'
   get '/thanks', to: 'front_pages#thankyou'
   get '/signup', to:'users#new'
   post '/signup', to:'users#create'
@@ -22,10 +25,14 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :votes, only: [:create, :new]
+    resources :ballots do
+      resources :votes, only: [:create, :new, :index]
+    end
   end
 
-  resources :votes, only: [:index]
-
+  resources :ballots do
+    resources :votes, only: [:create, :new, :index]
+  end
 
 
   #get 'front_pages/home'

@@ -1,7 +1,7 @@
 <% provide(:title, "Results") %>
 <h1>Here are the votes</h1>
 <div>
-<h2> The winner is <%= @winner %> </h2>
+<h2> The winner is <%= ranked_voting(@user,@vot,@candidates,@rank) %> </h2>
 </div>
 <div>
   <table cellspacing="8" width="50%" id="table_of_ballot">

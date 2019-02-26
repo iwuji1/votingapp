@@ -1,0 +1,8 @@
+<% provide(:title, @ball.ballot_name) %>
+<div>
+  <%= @ball.ballot_name %>
+</div>
+<div>
+  <h3>Ready to vote?</h3>
+  <button type="button" name="button"><%= link_to "Click here", new_user_vote_path(@user) %></button>
+</div>

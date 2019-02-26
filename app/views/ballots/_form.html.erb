@@ -1,0 +1,13 @@
+<%= form_for(@ball) do |f| %>
+
+  <%= f.label :ballot_name %>
+  <%= f.text_field :ballot_name, class: 'form-control' %>
+
+  <%= f.label :candidate_names %>
+  <%= f.text_field :candidates, class: 'form-control' %>
+
+  <%= f.label :ranks %>
+  <%= f.text_field :rank, class: 'form-control' %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>

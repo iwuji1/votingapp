@@ -3,6 +3,9 @@
   <%= @user.name %>, <%= @user.email %>
 </div>
 <div>
-  <h3>Ready to vote?</h3>
-  <button type="button" name="button"><%= link_to "Click here", new_user_vote_path(@user) %></button>
+  <h3>Ready to vote? Here are the ballots</h3>
+  <% @ball.each do |b| %>
+  <%= b.ballot_name %>
+  <button type="button" name="button"><%= link_to "Click here", new_user_ballot_vote_path(@user.id, b.id) %></button>
+  <% end %>
 </div>
