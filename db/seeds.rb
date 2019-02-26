@@ -21,23 +21,19 @@ User.create(name:  "admin",
   )
 end
 
-5.times do |time|
-  Ballot.create(
-    ballot_name: "elect#{time}",
-    candidates: "person1, person2, person3, person4",
-    rank: "1st, 2nd, 3rd, 4th",
-  )
-end
+Ballot.create(
+  ballot_name: "People vote test",
+  candidates: "bob box, susan small, merry christmas, why me",
+  rank: "1st, 2nd, 3rd, 4th",
+)
 
 for use in User.all
-  for bal in Ballot.all
     6.times do |time|
       Vote.create(
         user_id: use.id,
         candidate_name: [0,1,2,3].sample,
         rank: [0,1,2,3].sample,
-        ballot_id: bal.id,
+        ballot_id: 0,
       )
-    end
   end
 end
