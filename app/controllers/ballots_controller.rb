@@ -18,7 +18,7 @@ class BallotsController < ApplicationController
   end
 
   def create
-    binding.pry
+
     @ball = Ballot.new(ballot_params)
     if @ball.save
 
