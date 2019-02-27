@@ -15,10 +15,6 @@ module VotesHelper
       v5 << sup.sum
       sup = []
     end
-
-    puts "candidates completed"
-
-    i = 0
     binding.pry
     while v5.sum != 0
       divided = v5.map{|s| s.to_f/v5.sum}
@@ -49,12 +45,8 @@ module VotesHelper
           end
         end
         v5[cand_index] = v5[cand_index] + sup.sum
-        # sup = []
       end
-
-      puts "iteration #{i}, #{v5.sum}, #{v5}"
-
-      i += 1
     end
+    return @winner
   end
 end

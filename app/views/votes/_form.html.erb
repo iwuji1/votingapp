@@ -1,11 +1,11 @@
-<%= form_for [@user, @vot] do |f| %>
+<%= form_for [@user, @ball, @vot] do |f| %>
   <table width=80% id="voting_table">
     <td scope="col">Rank</td>
       <% @rank.each do |r| %>
       <th><%= r %></th>
       <% end %>
   <% @candidates.each_with_index do |p, p_index | %>
-    <%= form_for [@user, @vot] do |d| %>
+    <%= form_for [@user, @ball, @vot] do |d| %>
       <%= d.fields_for :votes do |ff| %>
         <tr>
           <th><%= p %></th>
@@ -28,4 +28,30 @@
   <div>
     <%= f.submit "vote !", class: "btn btn-primary" %>
   </div>
+<% end %>
+
+<%= form_for [@user, @vot] do |f| %>
+  <%= fields_for :votes do |ff| %>
+    <table width=80% id="voting_table">
+      <td scope="col">Rank</td>
+        <% @rank.each do |r| %>
+        <th><%= r %></th>
+        <% end %>
+        <tr>
+          <% @candidates.each_with_index do |p, p_index| %>
+          <th><%= p %></th>
+            <% @rank.each do |r|%>
+            <td>
+                <%selected_vote = @user.votes.any? %>
+                <% selected_vote == true ? {checked: true} : nil %>
+                <%= radio_button_tag p, {candidate_name: p, rank: r}, selected_vote %>
+            </td>
+            <% end %>
+        </tr>
+          <% end %>
+    </table>
+    <div>
+      <%= ff.submit "vote !", class: "btn btn-primary" %>
+    </div>
+  <% end %>
 <% end %>

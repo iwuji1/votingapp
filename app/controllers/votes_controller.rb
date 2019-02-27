@@ -21,6 +21,7 @@ class VotesController < ApplicationController
   end
 
   def create
+    binding.pry
     u = User.find(params[:user_id])
     b = Ballot.find(params[:ballot_id])
     u.votes.destroy_all
@@ -32,7 +33,7 @@ class VotesController < ApplicationController
 
         cand_name = eval(selection)[:candidate_name]
         rank = eval(selection)[:rank]
-        u.votes << Vote.new(candidate_name: cand_name, rank: rank, trial: selection)
+        u.votes << Vote.new(candidate_name: cand_name, rank: rank)
         #$test << selection
 
       end
