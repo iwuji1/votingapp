@@ -1,7 +1,16 @@
 <% provide(:title, "Home") %>
 
-<div class="center jumbotron">
-  <h1>Welcome to The Ranked Voting</h1>
-
-  <%= link_to "Sign Up!", signup_path, class: "btn btn-lg btn-primary" %>
+<div class="center jumbotron" style = "background-color:white">
+<header>
+<div class="header">
+  <%= image_tag("SGA_Lion_Grey.png", :alt => "rss feed", style: "width: 425px; height: 325px") %>
+  <h1 class="vote1" style = "color:#5C36A6; font-size: 128px">Vote</h1>
+      <h1 class="vote2" style="color:#E0135F; font-size: 128px">Vote</h1>
+      <h1 class="vote3" style = "color:#2E4553; font-size: 128px">Vote</h1>
+      <h1 class="vote4" style = "color:#347ADF; font-size: 128px">Vote</h1>
+</div>
+</header>
+  <br>
+  <br>
+  <%= link_to "VOTE HERE", signup_path, class: "btn btn-lg btn-primary", style: "padding:1px; background-color:white; color:#FFA141; font-size: 124px; font-weight: bold; border-color:white "%>
 </div>

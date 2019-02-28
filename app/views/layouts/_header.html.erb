@@ -1,13 +1,13 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to "Voting App", root_path, id: "logo" %>
+    <br/>
+    <%= link_to "OleVille Voting", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home",   root_path %></li>
         <li><%= link_to "Help",   help_path %></li>
         <% if logged_in? %>
           <li><%= link_to "Votes", votes_path %></li>
-          <li><%= link_to "Ballots", ballots_path %></li>
           <li class="dropdown">
             <a href="#" class="dropdown_toggle" data-toggle="dropdown">
               Account <b class="caret"></b>

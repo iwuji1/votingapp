@@ -13,7 +13,7 @@ $gray-medium-light: #eaeaea;
 /* universal */
 
 body {
-  padding-top: 60px;
+  padding-top: 10px;
 }
 
 section {
@@ -65,7 +65,7 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: white;
+  color: #FFA141;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
@@ -129,3 +129,66 @@ input {
     color: $state-danger-text;
   }
 }
+
+
+
+/* VOTE VOTE VOTE VOTE
+---------------------------*/
+.vote1 {
+    color: #E0135F;
+    text-shadow: -6px 6px 0 #ecece4;
+    font-weight: 400;
+    font-size: 128px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    }
+  
+.vote2 {
+    color: #ecece4;
+    font-weight: 400;
+    font-size: 128px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    }
+
+.vote3 {
+    color: #E0135F;
+    text-shadow: 0 6px 0 #ecece4;
+    font-weight: 400;
+    font-size: 128px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    }
+.vote3:before {
+  text-shadow: 0 0 4px #fff;
+  color: #003366;
+  }
+
+.vote4 {
+    color: #1a7fff;
+    font-weight: 400;
+    font-size: 128px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    }
+    
+
+/* Layout
+---------------------------*/
+.header {
+    margin: 0 auto 1em;
+    max-width: 30.625em; // 560px, blog image width
+    }
+.footer {
+    clear: both;
+    margin: 1em 0 2em;
+    padding-top: 1em;
+    text-align: center;
+    border-top: 1px rgba(0, 0, 0, 0.1) solid;
+    }
+        
+        
