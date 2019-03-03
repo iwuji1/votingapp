@@ -4,12 +4,13 @@ class VotesController < ApplicationController
   before_action :admin_user, only: [:index, :destroy]
 
   def index
-    binding.pry
     @user = User.all
-    @vot = Vote.all
-    @spec = Vote.where(:ballot_id => params[:ballot_id])
-    @candidates = ["bob box", "susan small", "merry christmas", "why me"]
-    @rank = ["1st", "2nd", "3rd", "4th"]
+    #@vot = Vote.all
+    @vot = Vote.where(:ballot_id => params[:ballot_id])
+    @candidates = Ballot.find(params[:ballot_id]).candidates.split(/\W+ /)
+    @rank = Ballot.find(params[:ballot_id]).rank.split(/\W+ /)
+    #@candidates = ["bob box", "susan small", "merry christmas", "why me"]
+    #@rank = ["1st", "2nd", "3rd", "4th"]
   end
 
   def new

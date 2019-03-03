@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+  delete '/end_ballot', to: 'ballots#destroy'
 
   resources :users do
     resources :votes, only: [:create, :new]

@@ -2,6 +2,14 @@
 <h3>Create a ballot</h3>
 <button type="button" name="button"><%= link_to "Click here", new_ballot_path %></button>
 <h3>See Current Ballot Results</h3>
-<% @ball.each do |b| %>
-<%= b.ballot_name %> <button type="button" name="button"><%= link_to "Results", ballot_votes_path(b.id) %></button>
-<% end %>
+<table>
+  <% @ball.each do |b| %>
+  <tr>
+    <td><%= b.ballot_name %></td>
+    <td><button type="button" name="button"><%= link_to "Results", ballot_votes_path(b.id) %></button></td>
+    <% if current_user.admin? %>
+        <td>><button type="button" name="button"><%= link_to "delete", ballot_path(b), :method => :delete, data: { confirm: 'Are you sure?' } %></button></td>
+     <% end %>
+    <% end %>
+  </tr>
+</table>

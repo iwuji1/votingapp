@@ -11,6 +11,7 @@ class BallotsController < ApplicationController
   end
 
   def index
+    binding.pry
     @ball = Ballot.all
   end
 
@@ -37,6 +38,14 @@ class BallotsController < ApplicationController
     else
       render'edit'
     end
+  end
+
+  def destroy
+    binding.pry
+    Vote.where(:ballot_id => params[:id]).destroy_all
+    Ballot.find(params[:id]).destroy
+    flash[:success] = "User deleted"
+    redirect_to ballots_path
   end
 
   private

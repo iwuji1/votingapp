@@ -32,6 +32,6 @@ for use in User.all
         user_id: use.id,
         candidate_name: [0,1,2,3].sample,
         rank: [0,1,2,3].sample,
-        ballot_id: 0)
+        ballot_id: 1)
   end
 end
