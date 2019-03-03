@@ -7,10 +7,11 @@ class VotesController < ApplicationController
     @user = User.all
     #@vot = Vote.all
     @vot = Vote.where(:ballot_id => params[:ballot_id])
-    @candidates = Ballot.find(params[:ballot_id]).candidates.split(/\W+ /)
-    @rank = Ballot.find(params[:ballot_id]).rank.split(/\W+ /)
-    #@candidates = ["bob box", "susan small", "merry christmas", "why me"]
-    #@rank = ["1st", "2nd", "3rd", "4th"]
+    @candidates = Ballot.find(params[:ballot_id]).candidates
+    @rank = Ballot.find(params[:ballot_id]).rank
+    # @candidates = Ballot.find(params[:ballot_id]).candidates.split(/\W+ /)
+    # @rank = Ballot.find(params[:ballot_id]).rank.split(/\W+ /)
+
   end
 
   def new
