@@ -1,36 +1,4 @@
 <%= form_for [@user, @ball, @vot] do |f| %>
-  <table width=80% id="voting_table">
-    <td scope="col">Rank</td>
-      <% @rank.each do |r| %>
-      <th><%= r %></th>
-      <% end %>
-  <% @candidates.each_with_index do |p, p_index | %>
-    <%= form_for [@user, @ball, @vot] do |d| %>
-      <%= d.fields_for :votes do |ff| %>
-        <tr>
-          <th><%= p %></th>
-          <% @rank.each_with_index do |r, r_index|%>
-          <td>
-            <%selected_vote = @user.votes.any? do |vot| %>
-              <% vot.rank == r_index && vot.candidate_name == p_index %>
-            <% end %>
-            <% selected_vote == true ? {checked: true} : nil %>
-            <%= radio_button_tag 'value[]', {candidate_name: p_index, time: r_index}, selected_vote %>
-            <%# <%= ff.radio_button 'vote[]', {p_index => r_index}, selected_vote %>
-            <%# {candidate_name: p_index, rank: r_index}.to_json, %>
-          </td>
-          <% end %>
-        </tr>
-        <% end %>
-    <% end %>
-  <% end %>
-  </table>
-  <div>
-    <%= f.submit "vote !", class: "btn btn-primary" %>
-  </div>
-<% end %>
-
-<%= form_for [@user, @vot] do |f| %>
   <%= fields_for :votes do |ff| %>
     <table width=80% id="voting_table">
       <td scope="col">Rank</td>
@@ -40,11 +8,12 @@
         <tr>
           <% @candidates.each_with_index do |p, p_index| %>
           <th><%= p %></th>
-            <% @rank.each do |r|%>
+            <% @rank.each_with_index do |r, r_index|%>
             <td>
-                <%selected_vote = @user.votes.any? %>
-                <% selected_vote == true ? {checked: true} : nil %>
-                <%= radio_button_tag p, {candidate_name: p, rank: r}, selected_vote %>
+              <%selected_vote = @user.votes.any? do |vot| %>
+                <% vot.rank == r_index && vot.candidate_name == p_index %>
+              <% end %>
+                <%= radio_button_tag p, r_index, selected_vote %>
             </td>
             <% end %>
         </tr>

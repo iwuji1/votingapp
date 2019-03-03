@@ -17,11 +17,17 @@
 //= require turbolinks
 //= require_tree .
 
-var col, el;
+function main() {
+  console.log("what")
+}
 
-$("input[type=radio]").click(function() {
-   el = $(this);
-   col = el.data("col");
-   $("input[data-col=" + col + "]").prop("checked", false);
-   el.prop("checked", true);
+
+$(document).ready(function(){
+  $("input[type = 'radio']").change(function(){
+    if (this.checked)
+    {
+      var radioValue = $(this).val();
+      $(":input[type = 'radio'][value="+radioValue+"]").not(this).attr('checked', false);
+    }
+  });
 });

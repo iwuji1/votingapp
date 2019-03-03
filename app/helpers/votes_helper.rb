@@ -15,7 +15,6 @@ module VotesHelper
       v5 << sup.sum
       sup = []
     end
-    binding.pry
     while v5.sum != 0
       divided = v5.map{|s| s.to_f/v5.sum}
       over_fifty = divided.map{|s| s > 0.51}
