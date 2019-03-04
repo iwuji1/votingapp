@@ -7,11 +7,10 @@ class VotesController < ApplicationController
     @user = User.all
     #@vot = Vote.all
     @vot = Vote.where(:ballot_id => params[:ballot_id])
-    @candidates = Ballot.find(params[:ballot_id]).candidates
-    @rank = Ballot.find(params[:ballot_id]).rank
-    # @candidates = Ballot.find(params[:ballot_id]).candidates.split(/\W+ /)
-    # @rank = Ballot.find(params[:ballot_id]).rank.split(/\W+ /)
-
+    @candidates = Ballot.find(params[:ballot_id]).candidates.split(/\W+ /)
+    @rank = Ballot.find(params[:ballot_id]).rank.split(/\W+ /)
+    #@candidates = ["bob box", "susan small", "merry christmas", "why me"]
+    #@rank = ["1st", "2nd", "3rd", "4th"]
   end
 
   def new
@@ -24,7 +23,7 @@ class VotesController < ApplicationController
   end
 
   def create
-    binding.pry
+    .pry
     u = User.find(params[:user_id])
     b = Ballot.find(params[:ballot_id])
     @candidates = b.candidates.split(/\W+ /)
@@ -34,14 +33,14 @@ class VotesController < ApplicationController
     @candidates.each_with_index do |cand, c_index|
       if params[cand]
         # selction = JSON.parse(selection)
-        binding.pry
+        .pry
         cand_name = c_index
         rank = params[cand].to_i
         u.votes << Vote.new(candidate_name: cand_name, rank: rank, ballot_id: params[:ballot_id])
         b.votes << Vote.new(candidate_name: cand_name, rank: rank, user_id: params[:user_id])
         #$test << selection
       end
-        binding.pry
+        .pry
     end
     #$test3[params[:user_id]] = $test
     # u.votes << Vote.new(trial: $test)

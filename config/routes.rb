@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   delete '/end_ballot', to: 'ballots#destroy'
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
 
   resources :users do
     resources :votes, only: [:create, :new]

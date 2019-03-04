@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190225152721) do
+ActiveRecord::Schema.define(version: 20190304202329) do
 
   create_table "ballots", force: :cascade do |t|
     t.string "ballot_name"
@@ -20,21 +20,15 @@ ActiveRecord::Schema.define(version: 20190225152721) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "options", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "ballot_id"
-    t.string "vote"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
+    t.string "uid"
     t.string "name"
-    t.string "email"
+    t.string "oauth_token"
+    t.datetime "oauth_expires_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "password_digest"
-    t.boolean "admin"
+    t.string "provider"
+    t.boolean "admin", default: false
   end
 
   create_table "votes", force: :cascade do |t|
@@ -43,7 +37,6 @@ ActiveRecord::Schema.define(version: 20190225152721) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "trial"
     t.integer "ballot_id"
   end
 

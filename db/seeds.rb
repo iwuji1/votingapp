@@ -11,27 +11,27 @@ User.create!(name:  "admin",
              password_confirmation: "foobar",
              admin: true)
 
-20.times do |time|
-  User.create!(
-    name: "person#{time}",
-    email: "person#{time}@gmail.com",
-    password: "changeme!",
-    password_confirmation: "changeme!",
-    admin: false
-  )
-end
+# 20.times do |time|
+#   User.create!(
+#     name: "person#{time}",
+#     email: "person#{time}@gmail.com",
+#     password: "changeme!",
+#     password_confirmation: "changeme!",
+#     admin: false
+#   )
+# end
 
 Ballot.create!(
   ballot_name: "People vote test",
   candidates: "bob box, susan small, merry christmas, why me",
   rank: "1st, 2nd, 3rd, 4th")
 
-for use in User.all
-    6.times do |time|
-      Vote.create!(
-        user_id: use.id,
-        candidate_name: [0,1,2,3].sample,
-        rank: [0,1,2,3].sample,
-        ballot_id: 1)
-  end
-end
+# for use in User.all
+#     6.times do |time|
+#       Vote.create!(
+#         user_id: use.id,
+#         candidate_name: [0,1,2,3].sample,
+#         rank: [0,1,2,3].sample,
+#         ballot_id: 1)
+#   end
+# end
