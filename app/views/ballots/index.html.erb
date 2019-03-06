@@ -7,9 +7,7 @@
   <tr>
     <td><%= b.ballot_name %></td>
     <td><button type="button" name="button"><%= link_to "Results", ballot_votes_path(b.id) %></button></td>
-    <% if current_user.admin? %>
-        <td>><button type="button" name="button"><%= link_to "delete", ballot_path(b), :method => :delete, data: { confirm: 'Are you sure?' } %></button></td>
-     <% end %>
+    <td><button type="button" name="button"><%= link_to "delete", ballot_path(b), :method => :delete, data: { confirm: 'Are you sure?' } %></button></td>
     <% end %>
   </tr>
 </table>

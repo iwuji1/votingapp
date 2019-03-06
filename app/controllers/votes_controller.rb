@@ -1,7 +1,7 @@
 class VotesController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
-  before_action :admin_user, only: [:index, :destroy]
+  # before_action :admin_user, only: [:index, :destroy]
 
   def index
     @user = User.all
@@ -23,7 +23,7 @@ class VotesController < ApplicationController
   end
 
   def create
-    
+
     u = User.find(params[:user_id])
     b = Ballot.find(params[:ballot_id])
     @candidates = b.candidates.split(/\W+ /)
@@ -33,14 +33,14 @@ class VotesController < ApplicationController
     @candidates.each_with_index do |cand, c_index|
       if params[cand]
         # selction = JSON.parse(selection)
-        
+
         cand_name = c_index
         rank = params[cand].to_i
         u.votes << Vote.new(candidate_name: cand_name, rank: rank, ballot_id: params[:ballot_id])
         b.votes << Vote.new(candidate_name: cand_name, rank: rank, user_id: params[:user_id])
         #$test << selection
       end
-        
+
     end
     #$test3[params[:user_id]] = $test
     # u.votes << Vote.new(trial: $test)

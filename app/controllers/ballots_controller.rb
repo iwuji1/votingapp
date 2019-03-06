@@ -4,14 +4,14 @@ class BallotsController < ApplicationController
   before_action :admin_user, only: :destroy
 
   def show
-    
+
     @vot = Vote.all
     @ball = Ballot.find(params[:id])
     @user = User.find(params[:id])
   end
 
   def index
-    
+
     @ball = Ballot.all
   end
 
@@ -41,7 +41,7 @@ class BallotsController < ApplicationController
   end
 
   def destroy
-    
+
     Vote.where(:ballot_id => params[:id]).destroy_all
     Ballot.find(params[:id]).destroy
     flash[:success] = "User deleted"
