@@ -20,6 +20,23 @@ Ballot.create!(
   candidates: "bob box, susan small, merry christmas, why me",
   rank: "1st, 2nd, 3rd, 4th")
 
+Ballot.create!(
+  ballot_name: "What food would destroy the World",
+  candidates: "Rice, Beef, merry christmas, why me",
+  rank: "1st, 2nd, 3rd, 4th")
+
+Ballot.create!(
+  ballot_name: "Best Continent",
+  candidates: "Asia, Europe, Africa, Oceania, North America, South America",
+  rank: "1st, 2nd, 3rd, 4th")
+
+Ballot.create!(
+  ballot_name: "Best Computer Type",
+  candidates: "PC, Macs",
+  rank: "1st, 2nd")
+
+
+
 # for use in User.all
 #     6.times do |time|
 #       Vote.create!(
