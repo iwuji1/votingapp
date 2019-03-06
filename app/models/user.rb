@@ -9,4 +9,9 @@ class User < ApplicationRecord
       user.save!
     end
   end
+
+  has_many :votes
+  has_many :ballots
+  accepts_nested_attributes_for :votes
+  accepts_nested_attributes_for :ballots
 end

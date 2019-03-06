@@ -37,7 +37,6 @@ Rails.application.routes.draw do
     resources :votes, only: [:create, :new, :index]
   end
 
-
   #get 'front_pages/home'
 
   #get 'front_pages/help'
