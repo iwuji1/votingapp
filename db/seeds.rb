@@ -28,7 +28,7 @@ Ballot.create!(
 Ballot.create!(
   ballot_name: "Best Continent",
   candidates: "Asia, Europe, Africa, Oceania, North America, South America",
-  rank: "1st, 2nd, 3rd, 4th")
+  rank: "1st, 2nd, 3rd, 4th, 5th, 6th")
 
 Ballot.create!(
   ballot_name: "Best Computer Type",
