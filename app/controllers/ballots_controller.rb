@@ -1,7 +1,7 @@
 class BallotsController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
-  before_action :admin_user, only: :destroy
+#  before_action :admin_user, only: :destroy
 
   def show
 
@@ -44,7 +44,7 @@ class BallotsController < ApplicationController
 
     Vote.where(:ballot_id => params[:id]).destroy_all
     Ballot.find(params[:id]).destroy
-    flash[:success] = "User deleted"
+    flash[:success] = "Ballot deleted"
     redirect_to ballots_path
   end
 
