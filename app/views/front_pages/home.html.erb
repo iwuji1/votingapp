@@ -4,10 +4,14 @@
 <header>
 <div class="header">
   <table class="intro" width="100%" align ="left">
+    <% if logged_in? == false%>
     <tr>
       <td><%= image_tag("SGA_Lion_Grey.png", :alt => "rss feed", style: "width: 425px; height: 325px") %></td>
       <td>  <%= link_to "VOTE HERE", "/auth/google_oauth2", id: "sign_in", class: "btn btn-lg btn-primary", style: "padding:1px; background-color:white; color:#FFA141; font-size: 124px; font-weight: bold; border-color:white "%></td>
     </tr>
+      <% else %>
+        <td>  <%= link_to "VOTE HERE",  current_user, class: "btn btn-lg btn-primary", style: "padding:1px; background-color:white; color:#2E4553; font-size: 124px"%></td>
+        <% end %>
   </table>
   <!-- <h1 class="vote1" style = "color:#5C36A6; font-size: 128px">Vote</h1>
       <h1 class="vote2" style="color:#E0135F; font-size: 128px">Vote</h1>
