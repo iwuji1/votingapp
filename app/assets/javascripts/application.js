@@ -15,7 +15,6 @@
 //= require rails-ujs
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 
 $(document).on('turbolinks:load',function(){
   $("input[type = 'radio']").change(function(){
