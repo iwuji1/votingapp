@@ -22,7 +22,7 @@ Ballot.create!(
 
 Ballot.create!(
   ballot_name: "What food would destroy the World",
-  candidates: "Rice, Beef, merry christmas, why me",
+  candidates: "Rice, Beef, Yogurt, Cereal",
   rank: "1st, 2nd, 3rd, 4th")
 
 Ballot.create!(
