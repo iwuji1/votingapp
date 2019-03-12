@@ -14,11 +14,10 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require rails-ujs
-//= require jquery_ujs
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function(){
+$(document).on('turbolinks:load',function(){
   $("input[type = 'radio']").change(function(){
     if (this.checked)
     {
