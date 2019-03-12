@@ -17,7 +17,7 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).on('turbolinks:load',function(){
+$(document).ready(function(){
   $("input[type = 'radio']").change(function(){
     if (this.checked)
     {
