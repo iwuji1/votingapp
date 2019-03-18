@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190306083227) do
+ActiveRecord::Schema.define(version: 20190318083735) do
 
   create_table "ballots", force: :cascade do |t|
     t.string "ballot_name"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20190306083227) do
     t.string "rank"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "category"
   end
 
   create_table "users", force: :cascade do |t|
@@ -29,8 +30,8 @@ ActiveRecord::Schema.define(version: 20190306083227) do
     t.datetime "updated_at", null: false
     t.string "provider"
     t.boolean "admin", default: false
-    t.string "google_secret"
-    t.string "mfa_secret"
+    t.string "email"
+    t.string "category"
   end
 
   create_table "votes", force: :cascade do |t|

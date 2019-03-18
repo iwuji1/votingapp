@@ -7,4 +7,10 @@ class FrontPagesController < ApplicationController
 
   def thankyou
   end
+
+  def massform
+    binding.pry
+    @user = User.find(params[:user_id])
+    @ball = Ballot.all
+  end
 end

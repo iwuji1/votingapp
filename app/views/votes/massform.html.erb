@@ -1,0 +1,33 @@
+<%= form_tag(:controller => "votes", :action => "create") do %>
+  <table>
+  <% @ball.each do |b| %>
+    <% @candidates = b.candidates.split(/\W+ /) %>
+    <% @rank = b.rank.split(/\W+ /) %>
+    <tr>
+      <td><%= b.ballot_name %></td>
+    </tr>
+      <tr>
+      <td scope="col">Rank</td>
+      <% @rank.each do |r| %>
+      <th><%= r %></th>
+      <% end %>
+      </tr>
+        <% @candidates.each_with_index do |p, p_index| %>
+        <tr>
+        <th><%= p %></th>
+          <% @rank.each_with_index do |r, r_index|%>
+          <td>
+            <%selected_vote = @user.votes.any? do |vot| %>
+              <% vot.rank == r_index && vot.candidate_name == p_index %>
+            <% end %>
+              <%= radio_button_tag p, r_index, selected_vote, class: b.ballot_name %>
+          </td>
+          <% end %>
+          </tr>
+        <% end %>
+  <% end %>
+  </table>
+  <div>
+    <%= submit_tag "vote !", class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -5,6 +5,9 @@
 <div>
   <h3>Ready to vote? Here are the ballots</h3>
   <table>
+    <tr>
+      <td><button type="button" name="button"><%= link_to "Click here", new_user_vote_path(@user.id) %></button></td>
+    </tr>
     <% @ball.each do |b| %>
     <tr>
       <td><%= b.ballot_name %></td>

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get '/vot', to: 'votes#new'
   get '/vote', to: 'vote#index'
   get '/thanks', to: 'front_pages#thankyou'
+  get '/mass', to: 'votes#massform'
   get '/signup', to:'users#new'
   post '/signup', to:'users#create'
   get '/login', to: 'sessions#new'
@@ -27,7 +28,7 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
 
   resources :users do
-    resources :votes, only: [:create, :new]
+    resources :votes, only: [:create, :new, :massform]
     resources :ballots do
       resources :votes, only: [:create, :new, :index]
     end

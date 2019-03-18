@@ -4,7 +4,6 @@ class BallotsController < ApplicationController
 #  before_action :admin_user, only: :destroy
 
   def show
-
     @vot = Vote.all
     @ball = Ballot.find(params[:id])
     @user = User.find(params[:id])

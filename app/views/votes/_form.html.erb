@@ -1,12 +1,14 @@
 <%= form_for [@user, @ball, @vot] do |f| %>
   <%= fields_for :votes do |ff| %>
     <table width=80% id="voting_table">
+      <tr>
       <td scope="col">Rank</td>
-        <% @rank.each do |r| %>
-        <th><%= r %></th>
-        <% end %>
-        <tr>
+      <% @rank.each do |r| %>
+      <th><%= r %></th>
+      <% end %>
+      </tr>
           <% @candidates.each_with_index do |p, p_index| %>
+          <tr>
           <th><%= p %></th>
             <% @rank.each_with_index do |r, r_index|%>
             <td>
@@ -16,7 +18,7 @@
                 <%= radio_button_tag p, r_index, selected_vote %>
             </td>
             <% end %>
-        </tr>
+            </tr>
           <% end %>
     </table>
     <div>

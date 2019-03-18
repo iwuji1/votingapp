@@ -18,25 +18,35 @@
 Ballot.create!(
   ballot_name: "People vote test",
   candidates: "bob box, susan small, merry christmas, why me",
-  rank: "1st, 2nd, 3rd, 4th")
+  rank: "1st, 2nd, 3rd, 4th",
+  category: "student")
 
 Ballot.create!(
   ballot_name: "What food would destroy the World",
   candidates: "Rice, Beef, Yogurt, Cereal",
-  rank: "1st, 2nd, 3rd, 4th")
+  rank: "1st, 2nd, 3rd, 4th",
+  category: "student")
 
 Ballot.create!(
   ballot_name: "Best Continent",
   candidates: "Asia, Europe, Africa, Oceania, North America, South America",
-  rank: "1st, 2nd, 3rd, 4th, 5th, 6th")
+  rank: "1st, 2nd, 3rd, 4th, 5th, 6th",
+  category: "mcd")
 
 Ballot.create!(
   ballot_name: "Best Computer Type",
   candidates: "PC, Macs",
-  rank: "1st, 2nd")
+  rank: "1st, 2nd",
+  category: "international")
 
 
-
+ENV["PEOPLE_key"].split(", ").each do |per|
+  User.create!(
+    email: per,
+    admin: false,
+    category: "student"
+  )
+end
 # for use in User.all
 #     6.times do |time|
 #       Vote.create!(

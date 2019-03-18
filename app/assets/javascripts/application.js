@@ -22,7 +22,28 @@ $(document).on('turbolinks:load',function(){
     if (this.checked)
     {
       var radioValue = $(this).val();
-      $(":input[type = 'radio'][value="+radioValue+"]").not(this).attr('checked', false);
+      var radioName = $(this).attr('name');
+      $(":input[type = 'radio'][name="+radioName+"][value="+radioValue+"]").not(this).attr('checked', false);
     }
   });
 });
+
+// $(document).on('turbolinks:load',function(){
+//   $("input[type = 'radio']").change(function(){
+//     if (this.checked)
+//     {
+//       var radioValue = $(this).val();
+//       var radioName = $(this).attr('name');
+//       var valsplit = radioValue.split(" ");
+//       //alert(valsplit[valsplit.length - 1]);
+//       var radios = document.getElementsByName(radioName)
+//       console.log(radios)
+//       for (i=0; i< radios.length; i++ ){
+//         if (( radios[i]!=this) && (radios[i].value.includes(valsplit[valsplit.length - 1]))) {
+//           radios[i].checked = true
+//         }
+//       }
+//       //($(":input[type = 'radio']").not(this)&&($(":input[type = 'radio']").val().includes(valsplit[valsplit.length - 1])==true)).attr('checked', true);
+//     }
+//   });
+// });
