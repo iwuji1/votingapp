@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'ballots/new'
 
   resources :votes
+  resources :front_pages
   # get 'votes/index'
   #
   # get 'votes/new'
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
   get '/vot', to: 'votes#new'
   get '/vote', to: 'vote#index'
   get '/thanks', to: 'front_pages#thankyou'
-  get '/mass', to: 'votes#massform'
+  get '/dat', to: 'front_pages#dataform'
   get '/signup', to:'users#new'
   post '/signup', to:'users#create'
   get '/login', to: 'sessions#new'

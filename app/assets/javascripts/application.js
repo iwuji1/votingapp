@@ -18,12 +18,12 @@
 //= require_tree .
 
 $(document).on('turbolinks:load',function(){
-  $("input[type = 'radio']").change(function(){
-    if (this.checked)
-    {
-      var radioValue = $(this).val();
-      var radioName = $(this).attr('name');
-      $(":input[type = 'radio'][name="+radioName+"][value="+radioValue+"]").not(this).attr('checked', false);
+  $("input[type='radio']").change(function(){
+    if (this.checked) {
+      var value = $(this).val();
+      var table = $(this).data('table');
+      var radioClass = $(this).attr('class');
+      $(table + " input[type='radio'][value='"+value+"']").not(this).attr('checked', false);
     }
   });
 });

@@ -38,21 +38,3 @@ Ballot.create!(
   candidates: "PC, Macs",
   rank: "1st, 2nd",
   category: "international")
-
-
-ENV["PEOPLE_key"].split(", ").each do |per|
-  User.create!(
-    email: per,
-    admin: false,
-    category: "student"
-  )
-end
-# for use in User.all
-#     6.times do |time|
-#       Vote.create!(
-#         user_id: use.id,
-#         candidate_name: [0,1,2,3].sample,
-#         rank: [0,1,2,3].sample,
-#         ballot_id: 1)
-#   end
-# end

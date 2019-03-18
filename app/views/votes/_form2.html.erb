@@ -1,11 +1,15 @@
 <%= form_tag(:controller => "votes", :action => "create") do %>
-  <table>
+
   <% @ball.each do |b| %>
-  <% if b.category == @user.category %>
+  <h2><%= b.ballot_name %></h2>
+
+  <% ballot_id =  b.ballot_name.gsub(/\s/, '-') %>
+
+  <table id="<%= ballot_id %>">
+  <% if @user.category.include? b.category %>
     <% @candidates = b.candidates.split(/\W+ /) %>
     <% @rank = b.rank.split(/\W+ /) %>
     <tr>
-      <td><%= b.ballot_name %></td>
     </tr>
       <tr>
       <td scope="col" >Rank</td>
@@ -21,14 +25,15 @@
             <%selected_vote = @user.votes.any? do |vot| %>
               <% vot.rank == r_index && vot.candidate_name == p_index %>
             <% end %>
-              <%= radio_button_tag p, r_index, selected_vote, class: b.ballot_name %>
+            <%= radio_button_tag p, r_index, selected_vote, :data => { table: "##{ballot_id}" } %>
           </td>
           <% end %>
           </tr>
         <% end %>
   <% end %>
-  <% end %>
   </table>
+  <% end %>
+
   <div>
     <%= submit_tag "vote !", class: "btn btn-primary" %>
   </div>

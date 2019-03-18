@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20190318083735) do
     t.string "provider"
     t.boolean "admin", default: false
     t.string "email"
-    t.string "category"
+    t.string "category", default: "student"
   end
 
   create_table "votes", force: :cascade do |t|
