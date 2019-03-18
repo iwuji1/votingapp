@@ -12,8 +12,12 @@ $gray-medium-light: #eaeaea;
 
 /* universal */
 
+.navbar-fixed-top {
+  position: static;
+}
+
 body {
-  padding-top: 10px;
+  margin: 0 !important;
 }
 
 section {
@@ -100,34 +104,11 @@ p {
   &:hover {
     color: white;
     text-decoration: none;
+    background-color: auto;
   }
 }
 
 /* footer */
-
-footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid $gray-medium-light;
-  color: $gray-light;
-  a {
-    color: $gray;
-    &:hover {
-      color: $gray-darker;
-    }
-  }
-  small {
-    float: left;
-  }
-  ul {
-    float: right;
-    list-style: none;
-    li {
-      float: left;
-      margin-left: 15px;
-    }
-  }
-}
 
 /* forms */
 

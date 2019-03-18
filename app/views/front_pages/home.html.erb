@@ -1,24 +1,25 @@
 <% provide(:title, "Home") %>
 
 <div class="center jumbotron" style = "background-color:white">
-<header>
-<div class="header">
-  <table class="intro" width="100%" align ="left">
+
+<header class="header">
+
     <% if logged_in? == false%>
-    <tr>
-      <td><%= image_tag("SGA_Lion_Grey.png", :alt => "rss feed", style: "width: 425px; height: 325px") %></td>
-      <td>  <%= link_to "Log In", "/auth/google_oauth2", id: "sign_in", class: "btn btn-lg btn-primary", style: "padding:1px; background-color:white; color:#FFA141; font-size: 124px; font-weight: bold; border-color:white "%></td>
-    </tr>
-      <% else %>
-        <td>  <%= link_to "VOTE HERE",  current_user, style: "padding:1px; background-color:white; color:#2E4553; font-size: 36px"%></td>
-        <% end %>
-  </table>
-  <!-- <h1 class="vote1" style = "color:#5C36A6; font-size: 128px">Vote</h1>
-      <h1 class="vote2" style="color:#E0135F; font-size: 128px">Vote</h1>
-      <h1 class="vote3" style = "color:#2E4553; font-size: 128px">Vote</h1>
-      <h1 class="vote4" style = "color:#347ADF; font-size: 128px">Vote</h1> -->
-</div>
+
+      <%= image_tag("SGA_Lion_Grey.png", :alt => "ole with rainbows", style: "width: 425px; height: 325px") %>
+      <%= link_to "Log In", "/auth/google_oauth2", id: "sign_in", class: "btn btn-lg btn-primary", style: "padding:1px; background-color:white; color:#FFA141; font-size: 124px; font-weight: bold; border-color:white "%>
+
+    <% else %>
+
+      <a href="<%= "/users/#{current_user.id}/votes/new" %>" id="vote_link">Vote Here</a>
+
+      <!-- <script>
+        window.location.href = document.querySelector('#vote_link').href
+      </script> -->
+       <%= link_to "VOTE HERE", new_user_vote_path(current_user.id), style: "padding:1px; background-color:white; color:#2E4553; font-size: 36px" %>
+
+    <% end %>
+
 </header>
-  <br>
-  <br>
+
 </div>

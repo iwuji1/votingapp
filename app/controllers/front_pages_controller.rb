@@ -36,6 +36,6 @@ class FrontPagesController < ApplicationController
         category: category.join(','),
       )
     end
-    redirect_to(thanks_path)
+    redirect_to(root_path)
   end
 end

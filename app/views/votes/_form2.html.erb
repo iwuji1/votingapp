@@ -1,40 +1,57 @@
 <%= form_tag(:controller => "votes", :action => "create") do %>
 
+<style>
+  input[type=radio] + .radio_button {
+    border: solid 3px pink;
+    border-radius: 4px;
+    padding: 1em;
+  }
+
+  input[type=radio]:checked + .radio_button {
+    background-color: pink;
+  }
+
+  input[type=radio] {
+    display: none;
+  }
+
+  .radio_button {
+    cursor: pointer;
+  }
+</style>
+
   <% @ball.each do |b| %>
-  <h2><%= b.ballot_name %></h2>
 
-  <% ballot_id =  b.ballot_name.gsub(/\s/, '-') %>
+    <% if @user.category.include? b.category %>
+      <h2><%= b.ballot_name %></h2>
 
-  <table id="<%= ballot_id %>">
-  <% if @user.category.include? b.category %>
-    <% @candidates = b.candidates.split(/\W+ /) %>
-    <% @rank = b.rank.split(/\W+ /) %>
-    <tr>
-    </tr>
-      <tr>
-      <td scope="col" >Rank</td>
-      <% @rank.each do |r| %>
-      <th><%= r %></th>
-      <% end %>
-      </tr>
+      <% ballot_id =  b.ballot_name.gsub(/\s/, '-') %>
+
+      <table id="<%= ballot_id %>" class="ballot-item">
+
+        <% @candidates = b.candidates.split(/\W+ /) %>
+        <% @rank = b.rank.split(/\W+ /) %>
+
         <% @candidates.each_with_index do |p, p_index| %>
-        <tr>
-        <th><%= p %></th>
-          <% @rank.each_with_index do |r, r_index|%>
-          <td>
-            <%selected_vote = @user.votes.any? do |vot| %>
-              <% vot.rank == r_index && vot.candidate_name == p_index %>
+          <tr>
+            <th style="text-align: right; padding-right: 1em; width: 150px;"><%= p %></th>
+            <% @rank.each_with_index do |r, r_index|%>
+              <td>
+                <%selected_vote = @user.votes.any? do |vot| %>
+                  <% vot.rank == r_index && vot.candidate_name == p_index %>
+                <% end %>
+                <%= radio_button_tag p, r_index, selected_vote, :data => { table: "##{ballot_id}" } %>
+                <%= label_tag p.gsub(/\s/, '_')+'_'+r_index.to_s, r, class: 'radio_button' %>
+              </td>
             <% end %>
-            <%= radio_button_tag p, r_index, selected_vote, :data => { table: "##{ballot_id}" } %>
-          </td>
-          <% end %>
           </tr>
         <% end %>
-  <% end %>
-  </table>
+      </table>
+
+    <% end %>
   <% end %>
 
-  <div>
-    <%= submit_tag "vote !", class: "btn btn-primary" %>
+  <div style="margin-bottom: 4rem">
+    <%= submit_tag "Submit Vote", class: "btn btn-primary" %>
   </div>
 <% end %>

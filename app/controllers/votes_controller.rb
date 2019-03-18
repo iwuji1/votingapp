@@ -1,7 +1,7 @@
 class VotesController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
-  # before_action :admin_user, only: [:index, :destroy]
+  before_action :admin_user, only: [:index, :destroy]
 
   def index
     @user = User.all
@@ -11,7 +11,7 @@ class VotesController < ApplicationController
   end
 
   def new
-    binding.pry
+
     @user = User.find(params[:user_id])
     # @ball = Ballot.find(params[:ballot_id])
     # @vot = Vote.new(params[:votes])
@@ -27,7 +27,7 @@ class VotesController < ApplicationController
   end
 
   def create
-    binding.pry
+
     u = User.find(params[:user_id])
 
     # b = Ballot.find(params[:ballot_id])

@@ -8,18 +8,11 @@
         <li><%= link_to "Home",   root_path %></li>
         <li><%= link_to "Log in", "/auth/google_oauth2", id: "sign_in" %></li>
         <% else %>
-          <li><%= link_to "Home",   current_user %></li>
+        <% if current_user.admin == true %>
           <li><%= link_to "Results", ballots_path %></li>
           <li><%= link_to "Upload Users", dat_path %></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown_toggle" data-toggle="dropdown">
-              Controls <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="divider"></li>
-              <li><%= link_to "Log out", logout_path, method: :delete %></li>
-            </ul>
-          </li>
+        <% end %>
+          <li><%= link_to "Log Out", logout_path, method: :delete %></li>
         <% end %>
       </ul>
     </nav>

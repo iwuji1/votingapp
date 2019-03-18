@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   def self.from_omniauth(auth)
-    binding.pry
+    
     where(email: auth.info.email).first_or_initialize.tap do |user|
         user.update({
           'provider': auth.provider,
