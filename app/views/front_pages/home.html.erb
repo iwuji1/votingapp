@@ -11,12 +11,7 @@
 
     <% else %>
 
-      <a href="<%= "/users/#{current_user.id}/votes/new" %>" id="vote_link">Vote Here</a>
-
-      <!-- <script>
-        window.location.href = document.querySelector('#vote_link').href
-      </script> -->
-       <%= link_to "VOTE HERE", new_user_vote_path(current_user.id), style: "padding:1px; background-color:white; color:#2E4553; font-size: 36px" %>
+      <%= link_to "VOTE HERE", new_user_vote_path(current_user.id), style: "padding:1px; background-color:white; color:#2E4553; font-size: 36px" %>
 
     <% end %>
 
