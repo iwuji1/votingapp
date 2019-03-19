@@ -39,6 +39,7 @@ class ApplicationController < ActionController::Base
   end
 
   def correct_user
+    binding.pry
     user = User.find(params[:user_id])
     redirect_to(root_path) unless current_user == user
   end

@@ -10,7 +10,6 @@ class BallotsController < ApplicationController
   end
 
   def index
-
     @ball = Ballot.all
   end
 
