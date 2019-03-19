@@ -21,11 +21,29 @@ class ApplicationController < ActionController::Base
     if session[:user_id]
       @current_user ||= User.find_by(id: session[:user_id])
     end
+    @current_user
   end
 
   def the_vote
     if current_user
       "/users/#{@current_user.id}/votes/new"
     end
+  end
+
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:danger] = "Please Log In"
+      redirect_to login_path
+    end
+  end
+
+  def correct_user
+    user = User.find(params[:user_id])
+    redirect_to(root_path) unless current_user == user
+  end
+
+  def admin_user
+    redirect_to(root_path) unless current_user.admin?
   end
 end
