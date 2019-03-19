@@ -31,7 +31,7 @@
 
       <table id="<%= ballot_id %>" class="ballot-item">
 
-        <% @candidates = b.candidates.split(/\W+ /) %>
+        <% @candidates = b.candidates.split(/\W+ /).shuffle %>
         <% @rank = b.rank.split(/\W+ /) %>
 
         <% @candidates.each_with_index do |p, p_index| %>
