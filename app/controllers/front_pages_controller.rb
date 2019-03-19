@@ -1,7 +1,7 @@
 require 'csv'
 
 class FrontPagesController < ApplicationController
-  before_action :admin_user, only: [:create]
+  before_action :admin_user, only: [:create, :dataform]
   def home
   end
 
