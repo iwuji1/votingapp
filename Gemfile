@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.3.3'
+ruby '2.5.5'
 
 gem 'barnes'
 gem 'omniauth-google-oauth2', '~> 0.2.1'
