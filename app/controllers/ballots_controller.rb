@@ -28,6 +28,7 @@ class BallotsController < ApplicationController
     end
   end
 
+
   def update
     @ball = Ballot.find(params[:id])
     if @ball.update_attributes(ballot_params)

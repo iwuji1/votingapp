@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'barnes'
 gem 'omniauth-google-oauth2', '~> 0.2.1'
 gem 'rails',' ~> 5.1.6'
 gem 'bcrypt','~> 3.1.12'
