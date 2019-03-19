@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.5.5'
 
+gem 'scout_apm'
 gem 'barnes'
 gem 'omniauth-google-oauth2', '~> 0.2.1'
 gem 'rails',' ~> 5.1.6'
