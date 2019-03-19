@@ -23,7 +23,7 @@ class BallotsController < ApplicationController
     @ball = Ballot.new(ballot_params)
     if @ball.save
 
-    redirect_to ballot_path(@ball)
+      redirect_to ballot_path(@ball)
     else
       render 'new'
     end
@@ -35,7 +35,7 @@ class BallotsController < ApplicationController
       flash[:success] = "Profile updated"
       redirect_to @ball
     else
-      render'edit'
+      render 'edit'
     end
   end
 
@@ -48,25 +48,9 @@ class BallotsController < ApplicationController
   end
 
   private
-    def ballot_params
-      params.require(:ballot).permit(:ballot_name, :candidates, :rank)
-    end
 
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "Please Log In"
-        redirect_to login_path
-      end
-    end
-
-    def correct_user
-      @user = User.find(params[:id])
-      redirect_to(root_path) unless current_user?(@user)
-    end
-
-    def admin_user
-      redirect_to(root_path) unless current_user.admin?
-    end
+  def ballot_params
+    params.require(:ballot).permit(:ballot_name, :candidates, :rank)
+  end
 
 end
