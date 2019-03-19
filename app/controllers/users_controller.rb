@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       flash[:success] = "Profile updated"
       redirect_to @user
     else
-      render'edit'
+      render 'edit'
     end
   end
 
@@ -41,7 +41,6 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     flash[:success] = "User deleted"
     redirect_to user_path
-
   end
 
 
