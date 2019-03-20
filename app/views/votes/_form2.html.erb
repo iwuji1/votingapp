@@ -1,26 +1,85 @@
 <% provide(:title, "Ballot") %>
 
-<%= form_tag(:controller => "votes", :action => "create") do %>
+<div class="stuff">
+
+<h2>Meet the Candidates</h2>
+<h3>SGA Executive Team</h3>
 
 <style>
-  input[type=radio] + .radio_button {
-    border: solid 3px pink;
-    border-radius: 4px;
+	.stuff {
+    background-color: #efefef;
     padding: 1em;
-  }
+    border-radius: 4px;
+	}
+	.candidates a {
+		color: blue;
+		text-decoration: underline;
+	}
+	.candidates a:visited {
+		color: purple;
+	}
+	ul.candidates {
+    column-count: 2;
+	}
 
-  input[type=radio]:checked + .radio_button {
-    background-color: pink;
-  }
-
-  input[type=radio] {
-    display: none;
-  }
-
-  .radio_button {
-    cursor: pointer;
+	.stuff h3 {
+	    text-align: center;
+	    color: #666;
+	}
+	.stuff h2 {
+		color: #444;
+    font-size: 3em;
   }
 </style>
+
+<ul class="candidates">
+<li><a href="https://oleville.com/elections/president-vice-president/">President &amp; Vice President</a></li>
+<li><a href="https://oleville.com/elections/adc/">ADC Coordinator</a></li>
+<li><a href="https://oleville.com/elections/borsc-coordinator/">BORSC Coordinator</a></li>
+<li><a href="https://oleville.com/elections/disc-coordinator/">DISC Coordinator</a></li>
+<li><a href="https://oleville.com/elections/mec-coordinator/">MEC Coordinator</a></li>
+<li><a href="https://oleville.com/elections/pause-co-coordinators/">Pause Co-Coordinators</a></li>
+<li><a href="https://oleville.com/elections/pac-coordinator/">PAC Coordinator</a></li>
+<li><a href="https://oleville.com/elections/sac-coordinator/">SAC Coordinator</a></li>
+<li><a href="https://oleville.com/elections/soc-coordinator/">SOC Coordinator</a></li>
+<li><a href="https://oleville.com/elections/vn-coordinator/">VN Coordinator</a></li>
+</ul>
+
+<h3>Senators</h3>
+
+<ul class="candidates">
+<li><a href="https://oleville.com/elections/curriculum-senator/">Curriculum Senator</a></li>
+<li><a href="https://oleville.com/elections/environmental-senator/">Environmental Senator</a></li>
+<li><a href="https://oleville.com/elections/gender-and-sexuality-senator/">Gender and Sexuality Senator</a></li>
+<li><a href="https://oleville.com/elections/inter-campus-liaison/">Inter-Campus Liaison</a></li>
+<li><a href="https://oleville.com/elections/international-student-senator/">International Student Senator</a></li>
+<li><a href="https://oleville.com/elections/multicultural-senator/">Multicultural Senator</a></li>
+<li><a href="https://oleville.com/elections/student-life-senator/">Student Life Senator</a></li>
+</ul>
+
+</div>
+
+<%= form_tag(:controller => "votes", :action => "create") do %>
+
+  <style>
+    input[type=radio] + .radio_button {
+      border: solid 3px pink;
+      border-radius: 4px;
+      padding: 1em;
+    }
+
+    input[type=radio]:checked + .radio_button {
+      background-color: pink;
+    }
+
+    input[type=radio] {
+      display: none;
+    }
+
+    .radio_button {
+      cursor: pointer;
+    }
+  </style>
 
   <% @ball.each do |b| %>
 
