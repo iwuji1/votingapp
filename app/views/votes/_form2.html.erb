@@ -36,7 +36,7 @@
 
         <% @candidates.each_with_index do |p, p_index| %>
           <tr>
-            <th style="text-align: right; padding-right: 1em; width: 150px;"><%= raw(p) %></th>
+            <th style="text-align: right; padding-right: 1em; width: 150px;"><%= p %></th>
             <% @rank.each_with_index do |r, r_index|%>
               <td>
                 <%selected_vote = @user.votes.any? do |vot| %>
